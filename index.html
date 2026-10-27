@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahym Alekberova | Development & Governance</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #f2ece4;
+    --surface: rgba(248, 244, 239, 0.85);
+    --text: #2a231e;
+    --heading: #48362f;
+    --purple: #5b3a8a;
+    --purple-light: #7b5caf;
+    --border: #d8cdc2;
+    --shadow: rgba(72, 54, 47, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.75;
+    font-size: 17px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+}
+
+/* Header Layout */
+header {
+    margin-bottom: 4.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+}
+
+.site-title {
+    color: var(--heading);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+/* Exact same-line row for Tagline & Nav */
+.header-subrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.tagline {
+    color: var(--purple);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--purple-light);
+    transition: width 0.2s ease;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+    width: 100%;
+}
+
+.intro {
+    background: var(--surface);
+    border-left: 5px solid var(--purple);
+    padding: 2.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 4rem;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.intro h2 {
+    color: var(--heading);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    color: var(--heading);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.work-item {
+    background: var(--surface);
+    padding: 1.8rem;
+    margin-bottom: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: all 0.25s ease;
+}
+
+.work-item:hover {
+    border-color: var(--purple);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(91, 58, 138, 0.08);
+}
+
+.work-item h3 {
+    color: var(--heading);
+    font-family: 'Playfair Display', Georgia, serif;
+    margin-bottom: 0.6rem;
+    font-size: 1.35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.work-item h3 span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--purple);
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.work-item:hover h3 span {
+    transform: translateX(4px);
+}
+
+.work-item p {
+    color: #4a3f38;
+    font-size: 1rem;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    color: #6d625a;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--purple-light);
+}
+
+/* Accessibility & Responsive */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-subrow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .site-title {
+        font-size: 2.3rem;
+    }
+
+    .intro {
+        padding: 1.5rem;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1 class="site-title">Mahym Alekberova</h1>
+        
+        <!-- Both tagline and nav sit inside this flex container -->
+        <div class="header-subrow">
+            <p class="tagline">Development &bull; Governance &bull; Sustainability</p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="resume.html">Resume</a>
+                <a href="projects.html">Projects</a>
+                <a href="writing.html">Writing</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="intro">
+        <h2>Welcome</h2>
+        <p>
+            Welcome to my writing and research repository. Trained in policy and systems analysis, 
+            and experienced in administrative, program support, stakeholder engagement, and research 
+            roles, I explore how institutions, incentives, and public policies shape outcomes for 
+            people and communities. This site brings together selected projects and writing from my 
+            academic, professional, and independent work.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="section-title">Selected Work</h2>
+        
+        <article class="work-item">
+            <h3>Comprehensive Return on Investment (CROI) <span>Explore &rarr;</span></h3>
+            <p>
+                Capstone project proposing a framework for assessing donor-side returns of 
+                foreign assistance and making overlooked forms of public value visible and measurable.
+            </p>
+        </article>
+        
+        <article class="work-item">
+            <h3>Improving Recycling Logistics Through Intermediate Collection Hubs <span>Explore &rarr;</span></h3>
+            <p>
+                GIS-informed sustainability project exploring operational alternatives 
+                for improving recycling collection, material recovery, and system efficiency.
+            </p>
+        </article>
+        
+        <article class="work-item">
+            <h3>Preparing Society for AI Through an AI Dividend <span>Explore &rarr;</span></h3>
+            <p>
+                Policy memorandum examining workforce adaptation, public capacity-building, 
+                and institutional responses to artificial intelligence.
+            </p>
+        </article>
+        
+        <article class="work-item">
+            <h3>Before Recycling <span>Explore &rarr;</span></h3>
+            <p>
+                A revised course op-ed exploring the challenges of plastic waste and potential 
+                pathways for recovery. Its core argument is simple: before recycling, there is recovery.
+            </p>
+        </article>
+    </section>
+
+    <footer>
+        <span>&copy; 2026 Mahym Alekberova</span>
+        <span><a href="https://github.com/mahym-mka" target="_blank">GitHub Profile</a></span>
+    </footer>
+
+</div>
+
+</body>
+</html>
